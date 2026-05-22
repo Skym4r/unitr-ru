@@ -506,8 +506,8 @@ u.jsx("td",{className:"py-2",children:"26.20.40.110, 27.12.31.000, 26.20.40.112,
   src:
 a==="PDU"
 ?s==="G"
-?"/assets/pdu-s-BRKsIRF5.png"
-:"https://manage.unitr.ru/wp-content/uploads/2026/05/3.-urp-vertikalnaya-s-monitorinkom-_-urp-vertikalnaya-s-monitoringom-i-upravleniem.png"
+?"https://manage.unitr.ru/wp-content/uploads/2026/05/2.-urp-gorizontalnaya-bez-monitoringa.png"
+:"/assets/pdu-s-BRKsIRF5.png"
 :a==="PDU-S"
 ?s==="G"
 ?"https://manage.unitr.ru/wp-content/uploads/2026/05/4.-urp-gorizontalnaya-s-monitoringom-_-urp-s-monitoringom-i-upravleniem.jpg"
