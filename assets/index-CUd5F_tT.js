@@ -405,7 +405,7 @@ l==="PDU"
 *Изделие находится в разработке`
 :""
 }),
-u.jsxs("div",{
+l !== "БК УРП"&&u.jsxs("div",{
 className:"mt-6 overflow-x-auto",
 children:[
 u.jsx("h3",{
