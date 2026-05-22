@@ -505,7 +505,7 @@ u.jsx("td",{className:"py-2",children:"26.20.40.110, 27.12.31.000, 26.20.40.112,
   u.jsx(_e,{label:"PDU",isSelected:l==="PDU",onClick:()=>N("type")("PDU"),className:"flex-1 pr-2"}),
     u.jsx(_e,{label:"PDU-S",isSelected:l==="PDU-S",onClick:()=>N("type")("PDU-S"),className:"flex-1 pl-2"}),
     u.jsx(_e,{label:"PDU-SU",isSelected:l==="PDU-SU",onClick:()=>N("type")("PDU-SU"),className:"flex-1 pr-2"}),
-    u.jsx(_e,{label:"БК УРП",isSelected:l==="БК УРП",onClick:()=>N("type")("БК УРП"),className:"flex-1 pl-2"})]})]})]}),
+    u.jsx(_e,{label: "БК УРП",isSelected:l=== "БК УРП",onClick:()=>{N( "type")( "БК УРП");N( "variant")( "G")},className: "flex-1 pl-2 "})]})]})]}),
     u.jsxs("div",{className:"flex flex-col gap-4",children:[
     u.jsxs("div",{className:"flex flex-col gap-2",children:[
     u.jsx("div",{className:"text-xs font-medium text-black sm:text-sm",children:"Количество PDU в партии"}),
