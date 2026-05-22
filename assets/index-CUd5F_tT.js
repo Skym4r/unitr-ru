@@ -327,11 +327,9 @@ to {
                     XN=()=>{const t=js(n=>n.catalog);return u.jsxs(u.Fragment,{children:
                       [u.jsx(ca,{crumbs:[{title:"Каталог",path:"#"}]}),
                       u.jsx("div",{className:"relative -z-1 -mt-15 h-40 overflow-hidden bg-linear-[180deg,#FFF_56.38%,#F8F8F8_100%] pt-12.5 pl-4 md:-mt-27 md:h-105 md:pt-27 md:pl-10",children:u.jsx("h1",{className:"text-[2rem] leading-[85%] font-medium md:text-6xl xl:text-8xl",children:"Каталог"})}),
-                      u.jsx("div",{className:"mb-10 flex flex-col gap-9 px-4 py-5 md:mb-20 md:gap-15 md:px-10 md:py-10",children:u.jsx("div",{className:"grid grid-cols-1 gap-4 md:grid-cols-2",children:
+                                           u.jsx("div",{className:"mb-10 flex flex-col gap-9 px-4 py-5 md:mb-20 md:gap-15 md:px-10 md:py-10",children:u.jsx("div",{className:"grid grid-cols-1 gap-4 md:grid-cols-2",children:
                               u.jsxs(Xe,{to:"/configurators/server",className:"relative aspect-[9/5] overflow-hidden bg-[#F5F5F5] p-3 md:p-5",children:[
         u.jsx("div",{className:"relative z-1 text-lg font-medium md:text-xl lg:text-2xl",children:"Серверные шкафы"}),
-        u.jsx("img",{src:oo,alt:"Серверные шкафы",className:"absolute top-10 right-0 z-0 h-full w-auto md:top-25"})
-      ]}),
       u.jsxs(Xe,{to:"/configurators/pdu",className:"relative aspect-[9/5] overflow-hidden bg-[#F5F5F5] p-3 md:p-5",children:[
         u.jsx("div",{className:"relative z-1 text-lg font-medium md:text-xl lg:text-2xl",children:"Устройства распределения питания PDU"}),
         u.jsx("img",{src:Wv,alt:"PDU",className:"absolute top-0 right-0 z-0 h-full w-auto object-cover"})
