@@ -120,7 +120,7 @@ PDU:
       ${Od}
       fields: productFields {
         content
-        image {
+        image { 
           node {
             sourceUrl
           }
