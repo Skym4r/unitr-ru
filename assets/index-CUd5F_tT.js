@@ -247,7 +247,7 @@ yb={catalog:[    {
            u.jsx(_e,{label:"54 U",isSelected:v===54,onClick:()=>E("height")(54),className:"border-r pr-2"})]})]}),u.jsxs("div",{className:"flex flex-col gap-2",children:[u.jsx("div",{className:"text-xs font-medium text-black sm:text-sm",children:"Глубина шкафа"})
             ,u.jsxs("div",{className:"flex flex-col gap-0",children:[
               
-              u.jsxs("div",{className:"flex gap-0 grid-cols-2",children:[
+              u.jsxs("div",{className:"grid gap-0 grid-cols-2",children:[
               u.jsx(_e,{label:"800мм",isSelected:x===80,onClick:()=>E("depth")(80),className:"flex-1 border-r pr-2"}),
               u.jsx(_e,{label:"1000мм",isSelected:x===100,onClick:()=>E("depth")(100),className:"flex-1 pl-2"}),
               u.jsx(_e,{label:"1100мм",isSelected:x===110,onClick:()=>E("depth")(110),className:"flex-1 border-r pr-2"}),
