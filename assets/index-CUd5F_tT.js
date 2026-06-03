@@ -18817,8 +18817,8 @@ const kS = ({ title: t, titleId: n, ...a }, l) =>
   NS = ({ onChange: t, selectedFile: n }) => {
     const [a, l] = k.useState(null),
       s = k.useRef(null),
-      c = (v) => {
-        v && v.type.startsWith("application/pdf") && l(v);
+     c = (v) => {
+        v && (v.type.startsWith("application/pdf") || v.type.startsWith("image/jpeg")) && l(v);
       };
     (k.useEffect(() => {
       t(a);
@@ -18875,7 +18875,7 @@ const kS = ({ title: t, titleId: n, ...a }, l) =>
                 children: [
                   u.jsx("p", {
                     className: "text-sm font-medium sm:text-lg",
-                    children: "Прикрепить карточку предприятия контрагента",
+                    children: "Прикрепить карточку предприятия контрагента(PDF или JPG)",
                   }),
                   u.jsx("p", {
                     className: "font text-xs opacity-50 sm:text-sm",
@@ -18886,7 +18886,7 @@ const kS = ({ title: t, titleId: n, ...a }, l) =>
               }),
           u.jsx("input", {
             type: "file",
-            accept: "application/pdf",
+            accept: "application/pdf, image/jpeg, image/jpg",
             ref: s,
             className: "hidden",
             onChange: (v) => {
