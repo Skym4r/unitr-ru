@@ -18875,7 +18875,7 @@ const kS = ({ title: t, titleId: n, ...a }, l) =>
                 children: [
                   u.jsx("p", {
                     className: "text-sm font-medium sm:text-lg",
-                    children: "Прикрепить карточку предприятия контрагента(PDF или JPG)",
+                    children: "Прикрепить карточку предприятия контрагента (PDF или JPG)",
                   }),
                   u.jsx("p", {
                     className: "font text-xs opacity-50 sm:text-sm",
@@ -22890,8 +22890,10 @@ const Is = SN(NN, {
         customPlugType: g,
         protection: v,
         connector: x,
-      } = n,
-      b = (P) => () => {
+      } = n;
+      const [isDescOpen, setIsDescOpen] = k.useState(true);
+      const [isTableOpen, setIsTableOpen] = k.useState(true);
+      const b = (P) => () => {
         t((_) => ({ ..._, color: P, ral: "" }));
       },
       E = (P) => () => {
@@ -22913,13 +22915,26 @@ const Is = SN(NN, {
       className: "flex flex-col gap-5 sm:gap-10",
       style: { order: 0 },
       children: [
-        u.jsx("p", {
-          className: "text-sm opacity-50",
-          style: { whiteSpace: "pre-line" },
-          dangerouslySetInnerHTML: {
-            __html:
-              l === "PDU"
-                ? `<strong>Блок распределения питания PDU базовый / Устройство распределения питания PDU</strong>
+        u.jsxs("div", {
+  className: "flex flex-col gap-2",
+  children: [
+    u.jsxs("button", {
+      type: "button",
+      onClick: () => setIsDescOpen(!isDescOpen),
+      className: "flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity w-fit",
+      children: [
+        u.jsx("span", { children: isDescOpen ? "Свернуть описание" : "Развернуть описание" }),
+        u.jsx("span", { className: "text-xs", children: isDescOpen ? "▲" : "▼" }),
+      ],
+    }),
+    isDescOpen &&
+      u.jsx("p", {
+        className: "text-sm opacity-50",
+        style: { whiteSpace: "pre-line" },
+        dangerouslySetInnerHTML: {
+          __html:
+            l === "PDU"
+              ? `<strong>Блок распределения питания PDU базовый / Устройство распределения питания PDU</strong>
 Предназначено для распределения и обеспечения электропитания на телекоммуникационное и серверное оборудование, системы охлаждения и другое оборудование, размещенное в серверных шкафах.
 
 <strong>Адаптация</strong>
@@ -22930,8 +22945,8 @@ const Is = SN(NN, {
 
 <strong>Оптимизация пространства</strong>
 Вертикальные блоки распределения питания для размещения в высоких стойках, горизонтальные устройства распределения питания – для компактных решений. Монтаж без потери полезной площади.`
-                : l === "PDU-S"
-                  ? `<strong>Блок распределения питания PDU. С мониторингом / Устройство распределения питания PDU. С мониторингом</strong>
+              : l === "PDU-S"
+                ? `<strong>Блок распределения питания PDU. С мониторингом / Устройство распределения питания PDU. С мониторингом</strong>
 Предназначено для эффективного распределения электропитания телекоммуникационного и серверного оборудования, систем охлаждения и другого критически важного оборудования, размещенного в серверных шкафах. Устройство гарантирует стабильную подачу электроэнергии на каждый подключенный прибор, способствуя работе всей IT-инфраструктуры.
 
 <strong>Ключевые особенности:</strong>
@@ -22940,8 +22955,8 @@ const Is = SN(NN, {
 
 <strong>Интеллектуальный мониторинг в реальном времени</strong>
 Система непрерывного мониторинга отслеживает ключевые параметры электропитания (ток, напряжение, нагрузка) в реальном времени. Устройства поддерживают протоколы Modbus TCP и SNMP. Контроль энергопотребления, температуры и влажности дает возможность предотвращения аварий на ранних этапах. Гарантирует полную совместимость блоков распределения питания между собой, упрощает администрирование парка устройств и обеспечивает мгновенную настройку нового оборудования при масштабировании системы.`
-                  : l === "PDU-SU"
-                    ? `<strong>Блок распределения питания PDU. С мониторингом и управлением / Устройство распределения питания PDU. С мониторингом и управлением</strong>
+                : l === "PDU-SU"
+                  ? `<strong>Блок распределения питания PDU. С мониторингом и управлением / Устройство распределения питания PDU. С мониторингом и управлением</strong>
 Предназначено для эффективного распределения электропитания телекоммуникационного и серверного оборудования, систем охлаждения и другого критически важного оборудования, размещенного в серверных шкафах. Устройство гарантирует стабильную подачу электроэнергии на каждый подключенный прибор, способствуя работе всей IT-инфраструктуры.
 
 <strong>Ключевые особенности:</strong>
@@ -22950,8 +22965,8 @@ const Is = SN(NN, {
 
 <strong>Интеллектуальный мониторинг и управление в реальном времени</strong>
 Система непрерывного мониторинга отслеживает ключевые параметры электропитания (ток, напряжение, нагрузка) в реальном времени. Устройства поддерживают протоколы Modbus TCP и SNMP. Удаленное управление позволяет включать/выключать любую розетку или группу розеток, что решает проблему принудительной перезагрузки любых устройств без необходимости физического доступа к ним. Контроль энергопотребления, температуры и влажности дает возможность предотвращения аварий на ранних этапах. Гарантирует полную совместимость блоков распределения питания между собой, упрощает администрирование парка устройств и обеспечивает мгновенную настройку нового оборудования при масштабировании системы.`
-                    : l === "БК УРП"
-                      ? `<strong>Блок контроля устройства распределения питания (БК УРП)*</strong>
+                  : l === "БК УРП"
+                    ? `<strong>Блок контроля устройства распределения питания (БК УРП)*</strong>
 Компактное решение для удаленного мониторинга и оптимизации энергопотребления вашего ЦОДа.
 
 <strong>Назначение:</strong>
@@ -22967,240 +22982,167 @@ const Is = SN(NN, {
 Прямая экономия бюджета — отказ от покупки дорогостоящих интеллектуальных PDU (блоков распределения питания) для каждой стойки. Используйте обычные устройства распределения питания, получая функциональность «умной» розетки.
 
 *Изделие находится в разработке`
-                      : "",
-          },
-        }),
-        l !== "БК УРП" &&
-          u.jsxs("div", {
-            className: "mt-6 overflow-x-auto",
-            children: [
-              u.jsx("h3", {
-                className: "text-xl font-semibold mb-2",
-                children: "Технические характеристики",
-              }),
-              u.jsx("p", {
-                className: "text-sm opacity-70 mb-4",
-                children:
-                  l === "PDU"
-                    ? "Устройство распределения питания PDU. Без мониторинга / Блок распределения питания PDU базовый"
-                    : l === "PDU-S"
-                      ? "Блок распределения питания PDU. С мониторингом / Устройство распределения питания PDU. С мониторингом"
-                      : "Устройство распределения питания PDU. С мониторингом и управлением",
-              }),
-              u.jsx("p", {
-                className: "text-sm opacity-50 mb-4",
-                children: "Возможны изменения в зависимости от конфигурации",
-              }),
-              u.jsxs("table", {
-                className: "w-full border-collapse text-sm",
-                children: [
-                  u.jsx("thead", {
-                    children: u.jsxs("tr", {
-                      className: "border-b",
-                      children: [
-                        u.jsx("th", {
-                          className: "text-left py-2 pr-4",
-                          children: "Параметр",
-                        }),
-                        u.jsx("th", {
-                          className: "text-left py-2",
-                          children: "Значение",
-                        }),
-                      ],
-                    }),
-                  }),
-                  u.jsxs("tbody", {
+                    : "",
+        },
+      }),
+  ],
+}),
+    l !== "БК УРП" &&
+  u.jsxs("div", {
+    className: "mt-6 flex flex-col gap-2",
+    children: [
+      u.jsxs("button", {
+        type: "button",
+        onClick: () => setIsTableOpen(!isTableOpen),
+        className: "flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition-opacity w-fit",
+        children: [
+          u.jsx("span", { children: isTableOpen ? "Свернуть характеристики" : "Развернуть характеристики" }),
+          u.jsx("span", { className: "text-xs", children: isTableOpen ? "▲" : "▼" }),
+        ],
+      }),
+      isTableOpen &&
+        u.jsx("div", {
+          className: "overflow-x-auto",
+          children: [
+            u.jsx("h3", {
+              className: "text-xl font-semibold mb-2",
+              children: "Технические характеристики",
+            }),
+            u.jsx("p", {
+              className: "text-sm opacity-70 mb-4",
+              children:
+                l === "PDU"
+                  ? "Устройство распределения питания PDU. Без мониторинга / Блок распределения питания PDU базовый"
+                  : l === "PDU-S"
+                    ? "Блок распределения питания PDU. С мониторингом / Устройство распределения питания PDU. С мониторингом"
+                    : "Устройство распределения питания PDU. С мониторингом и управлением",
+            }),
+            u.jsx("p", {
+              className: "text-sm opacity-50 mb-4",
+              children: "Возможны изменения в зависимости от конфигурации",
+            }),
+            u.jsxs("table", {
+              className: "w-full border-collapse text-sm",
+              children: [
+                u.jsx("thead", {
+                  children: u.jsxs("tr", {
+                    className: "border-b",
                     children: [
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "Номинальное напряжение",
-                          }),
-                          u.jsx("td", {
-                            className: "py-2",
-                            children:
-                              "230 В / 400 В (в зависимости от исполнения)",
-                          }),
-                        ],
+                      u.jsx("th", {
+                        className: "text-left py-2 pr-4",
+                        children: "Параметр",
                       }),
-
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "Максимальный ток (на фазу)",
-                          }),
-                          u.jsx("td", { className: "py-2", children: "32 А" }),
-                        ],
-                      }),
-
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "Тип розеток",
-                          }),
-                          u.jsx("td", {
-                            className: "py-2",
-                            children:
-                              "C13, C19, Schuko, IEC 60309 и др. по запросу",
-                          }),
-                        ],
-                      }),
-
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "Количество розеток",
-                          }),
-                          u.jsx("td", {
-                            className: "py-2",
-                            children:
-                              "от 8 до 48 (горизонтальные/вертикальные)",
-                          }),
-                        ],
-                      }),
-
-                      (l === "PDU-S" || l === "PDU-SU") &&
-                        u.jsxs("tr", {
-                          className: "border-b",
-                          children: [
-                            u.jsx("td", {
-                              className: "py-2 pr-4",
-                              children: "Протоколы мониторинга",
-                            }),
-                            u.jsx("td", {
-                              className: "py-2",
-                              children: "SNMP v2c/v3, Modbus TCP",
-                            }),
-                          ],
-                        }),
-
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "Диапазон рабочих температур",
-                          }),
-                          u.jsx("td", {
-                            className: "py-2",
-                            children: "от +5°C до +50°C",
-                          }),
-                        ],
-                      }),
-
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "Относительная влажность",
-                          }),
-                          u.jsx("td", {
-                            className: "py-2",
-                            children: "45-80%",
-                          }),
-                        ],
-                      }),
-
-                      (l === "PDU-S" || l === "PDU-SU") &&
-                        u.jsxs("tr", {
-                          className: "border-b",
-                          children: [
-                            u.jsx("td", {
-                              className: "py-2 pr-4",
-                              children: "Горячая замена контроллера",
-                            }),
-                            u.jsx("td", {
-                              className: "py-2",
-                              children: "да (без отключения нагрузки)",
-                            }),
-                          ],
-                        }),
-
-                      l === "PDU-SU" &&
-                        u.jsxs("tr", {
-                          className: "border-b",
-                          children: [
-                            u.jsx("td", {
-                              className: "py-2 pr-4",
-                              children: "Удаленный вкл/выкл розеток",
-                            }),
-                            u.jsx("td", { className: "py-2", children: "да" }),
-                          ],
-                        }),
-
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "Габариты (горизонтальные)",
-                          }),
-                          u.jsx("td", {
-                            className: "py-2",
-                            children: "в зависимости от количества розеток",
-                          }),
-                        ],
-                      }),
-
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "Габариты (вертикальные)",
-                          }),
-                          u.jsx("td", {
-                            className: "py-2",
-                            children:
-                              "под заказ (до 42U / 54U) возможно исполнение Zero-U",
-                          }),
-                        ],
-                      }),
-
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "Соответствие стандартам",
-                          }),
-                          u.jsx("td", {
-                            className: "py-2",
-                            children:
-                              "ISO 9001:2025, ТР ТС 004/2011, ПУЭ, Продукция сертифицирована",
-                          }),
-                        ],
-                      }),
-
-                      u.jsxs("tr", {
-                        className: "border-b",
-                        children: [
-                          u.jsx("td", {
-                            className: "py-2 pr-4",
-                            children: "ОКПД-2",
-                          }),
-                          u.jsx("td", {
-                            className: "py-2",
-                            children:
-                              "26.20.40.110, 27.12.31.000, 26.20.40.112, 26.20.40.130, 26.20.40.110, 26.30.50.151",
-                          }),
-                        ],
+                      u.jsx("th", {
+                        className: "text-left py-2",
+                        children: "Значение",
                       }),
                     ],
                   }),
-                ],
-              }),
-            ],
-          }),
+                }),
+                u.jsxs("tbody", {
+                  children: [
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "Номинальное напряжение" }),
+                        u.jsx("td", { className: "py-2", children: "230 В / 400 В (в зависимости от исполнения)" }),
+                      ],
+                    }),
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "Максимальный ток (на фазу)" }),
+                        u.jsx("td", { className: "py-2", children: "32 А" }),
+                      ],
+                    }),
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "Тип розеток" }),
+                        u.jsx("td", { className: "py-2", children: "C13, C19, Schuko, IEC 60309 и др. по запросу" }),
+                      ],
+                    }),
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "Количество розеток" }),
+                        u.jsx("td", { className: "py-2", children: "от 8 до 48 (горизонтальные/вертикальные)" }),
+                      ],
+                    }),
+                    (l === "PDU-S" || l === "PDU-SU") &&
+                      u.jsxs("tr", {
+                        className: "border-b",
+                        children: [
+                          u.jsx("td", { className: "py-2 pr-4", children: "Протоколы мониторинга" }),
+                          u.jsx("td", { className: "py-2", children: "SNMP v2c/v3, Modbus TCP" }),
+                        ],
+                      }),
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "Диапазон рабочих температур" }),
+                        u.jsx("td", { className: "py-2", children: "от +5°C до +50°C" }),
+                      ],
+                    }),
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "Относительная влажность" }),
+                        u.jsx("td", { className: "py-2", children: "45-80%" }),
+                      ],
+                    }),
+                    (l === "PDU-S" || l === "PDU-SU") &&
+                      u.jsxs("tr", {
+                        className: "border-b",
+                        children: [
+                          u.jsx("td", { className: "py-2 pr-4", children: "Горячая замена контроллера" }),
+                          u.jsx("td", { className: "py-2", children: "да (без отключения нагрузки)" }),
+                        ],
+                      }),
+                    l === "PDU-SU" &&
+                      u.jsxs("tr", {
+                        className: "border-b",
+                        children: [
+                          u.jsx("td", { className: "py-2 pr-4", children: "Удаленный вкл/выкл розеток" }),
+                          u.jsx("td", { className: "py-2", children: "да" }),
+                        ],
+                      }),
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "Габариты (горизонтальные)" }),
+                        u.jsx("td", { className: "py-2", children: "в зависимости от количества розеток" }),
+                      ],
+                    }),
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "Габариты (вертикальные)" }),
+                        u.jsx("td", { className: "py-2", children: "под заказ (до 42U / 54U) возможно исполнение Zero-U" }),
+                      ],
+                    }),
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "Соответствие стандартам" }),
+                        u.jsx("td", { className: "py-2", children: "ISO 9001:2025, ТР ТС 004/2011, ПУЭ, Продукция сертифицирована" }),
+                      ],
+                    }),
+                    u.jsxs("tr", {
+                      className: "border-b",
+                      children: [
+                        u.jsx("td", { className: "py-2 pr-4", children: "ОКПД-2" }),
+                        u.jsx("td", { className: "py-2", children: "26.20.40.110, 27.12.31.000, 26.20.40.112, 26.20.40.130, 26.20.40.110, 26.30.50.151" }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+    ],
+  }),
 
         u.jsxs("div", {
           className: "flex flex-col gap-15",
